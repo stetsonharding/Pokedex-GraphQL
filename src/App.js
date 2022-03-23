@@ -1,10 +1,21 @@
-import "./App.css";
+// import "./App.css";
+
+//Apollo allows us to git a graphQl endpoint.
+import ApolloClient from "apollo-boost";
+import { ApolloProvider } from "@apollo/react-hooks";
 
 function App() {
+  //Setting up GraphQL request.
+  const client = new ApolloClient({
+    uri: "https://graphql-pokemon.sh",
+  });
+
   return (
-    <div className="App">
-      <h1>Inital App</h1>
-    </div>
+    <ApolloProvider client={client}>
+      <main>
+        <p>I am a pokemon</p>
+      </main>
+    </ApolloProvider>
   );
 }
 
