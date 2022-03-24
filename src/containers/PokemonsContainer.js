@@ -7,14 +7,17 @@ import { GET_POKEMONS } from "../graphql/fetch-pokemons";
 
 function PokemonsContainer() {
   const { data: { pokemons = [] } = {} } = useQuery(GET_POKEMONS, {
-    variables: { first: 100 },
+    variables: { first: 10 },
   });
 
   console.log(pokemons);
 
   return (
     <div className="pokemons-container">
-      <Pokemon />
+      {pokemons.map((pokemon, index) => (
+        <Pokemon pokemon={pokemon} />
+      ))}
+      {/* <Pokemon /> */}
     </div>
   );
 }
