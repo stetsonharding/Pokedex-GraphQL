@@ -10,13 +10,17 @@ function PokemonsContainer() {
     variables: { first: 10 },
   });
 
-  console.log(pokemons);
+  // console.log(pokemons);
 
   return (
     <div className="pokemons-container">
-      {pokemons.map((pokemon, index) => (
-        <Pokemon pokemon={pokemon} />
-      ))}
+      {/* if pokemons array is not null, iterate through array, and pass each item to pokemon cards componenet via props */}
+      {pokemons &&
+        pokemons.map((pokemon) => (
+          <div key={pokemon.id}>
+            <Pokemon pokemon={pokemon} />
+          </div>
+        ))}
       {/* <Pokemon /> */}
     </div>
   );
