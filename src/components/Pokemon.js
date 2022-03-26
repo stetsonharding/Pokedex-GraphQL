@@ -15,8 +15,10 @@ function Pokemon({ pokemon }) {
       <div className="pokemon-image-container">
         <img src={pokemon.image} alt="pokemeon" />
       </div>
+      <div className="attack-title">
+        <span>Attacks</span>
+      </div>
       <div className="pokemon-attacks-container">
-        <p>Attacks</p>
         {/* If pokemon and pokemon attacks is not null cut the array to only display 3 special attacks */}
         {pokemon &&
           pokemon.attacks &&
@@ -26,7 +28,6 @@ function Pokemon({ pokemon }) {
               className="pokemon-attacks"
             >
               <span>{attack.name}</span>
-              <br />
               <span>Dmg: {attack.damage}</span>
             </div>
           ))}
