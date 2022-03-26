@@ -1,0 +1,48 @@
+/* main wrapper */
+.pokemon {
+  width: 250px;
+  margin: 1rem;
+  border-radius: 5px;
+  box-shadow: 1px 1px 5px black;
+}
+
+.pokemon-name {
+  background-color: #ffcb05;
+  border-radius: 5px;
+  margin-top: 2rem;
+  padding: 10px;
+  text-align: center;
+
+  color: #3d7dca;
+  font-weight: 700;
+  letter-spacing: 1px;
+  font-size: 20px;
+}
+
+/* details max hp and crit */
+.pokemon-strength-details {
+  display: flex;
+  justify-content: space-around;
+  margin: 1rem;
+}
+.pokemon-strength-details span {
+  font-weight: bold;
+  font-size: 14px;
+  color: red;
+}
+
+/* Image */
+.pokemon-image-container {
+  text-align: center;
+}
+.pokemon-image-container img {
+  width: 180px;
+}
+
+/* Attacks */
+.pokemon-attacks-container p {
+  text-align: center;
+  color: red;
+  letter-spacing: 1px;
+  font-weight: 500;
+}
