@@ -1,0 +1,8 @@
+.pokemons-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 1500px;
+  flex-wrap: wrap;
+  background-color: rgb(206, 231, 240);
+}

@@ -5,12 +5,12 @@ import Pokemon from "../components/Pokemon";
 
 import { GET_POKEMONS } from "../graphql/fetch-pokemons";
 
+import "../../src/css/PokemonsContainer.css";
+
 function PokemonsContainer() {
   const { data: { pokemons = [] } = {} } = useQuery(GET_POKEMONS, {
-    variables: { first: 10 },
+    variables: { first: 32 },
   });
-
-  // console.log(pokemons);
 
   return (
     <div className="pokemons-container">

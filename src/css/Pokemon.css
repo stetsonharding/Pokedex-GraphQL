@@ -1,9 +1,11 @@
 /* main wrapper */
 .pokemon {
-  width: 330px;
+  width: 280px;
+  height: 340px;
   margin: 1rem;
   border-radius: 5px;
   box-shadow: 1px 1px 5px black;
+  background-color: #fff;
 }
 
 /* name */
@@ -37,7 +39,8 @@
   text-align: center;
 }
 .pokemon-image-container img {
-  width: 180px;
+  width: 100px;
+  height: 100px;
 }
 
 /* Attacks */
@@ -53,6 +56,9 @@
   display: flex;
   justify-content: space-around;
   padding-bottom: 1rem;
+
+  height: 50px;
+  align-items: flex-end;
 }
 
 .pokemon-attacks {
@@ -70,4 +76,5 @@
   padding: 0;
   font-weight: bold;
   font-style: italic;
+  font-size: 12px;
 }
