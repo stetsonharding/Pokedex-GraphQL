@@ -1,7 +1,7 @@
 import React from "react";
 import "../css/Pokemon.css";
 
-function Pokemon({ pokemon }) {
+function Pokemon({ pokemon, searchedPokemons }) {
   return (
     <div className="pokemon">
       <div className="pokemon-name">
