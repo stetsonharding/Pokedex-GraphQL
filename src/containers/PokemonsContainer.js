@@ -8,7 +8,7 @@ import "../../src/css/PokemonsContainer.css";
 
 function PokemonsContainer() {
   const [searchQuery, setSearchQuery] = useState("");
-  const [searchedPokemon, setSeaerchedPokemon] = useState([]);
+  const [searchedPokemon, setSearchedPokemon] = useState([]);
 
   const { data: { pokemons = [] } = {} } = useQuery(GET_POKEMONS, {
     variables: { first: 12 },
@@ -20,17 +20,18 @@ function PokemonsContainer() {
 
     //Searching pokemons array with user input
     //Storing  searched results in new array.
-    setSeaerchedPokemon(
+    setSearchedPokemon(
       pokemons.filter((pokemon) => pokemon.name.includes(searchQuery))
     );
 
-    // if (searchQuery === null) {
-    //   setSearchQuery("");
-    //   setSeaerchedPokemon([]);
-    // }
+    if (searchQuery === "") {
+      // setSearchQuery("");
+      // setSearchedPokemon([]);
+      console.log(true);
+    }
   };
 
-  // console.log(searchedPokemon);
+  console.log(searchQuery);
 
   return (
     <>
@@ -41,14 +42,31 @@ function PokemonsContainer() {
         />
       </div>
       <div className="pokemons-container">
-        {/* if pokemons array is not null, iterate through array, and pass each item to pokemon cards componenet via props */}
-        {pokemons &&
-          pokemons.map((pokemon) => (
-            <div key={pokemon.id}>
-              <Pokemon pokemon={pokemon} />
-            </div>
-          ))}
-        {/* <Pokemon /> */}
+        {/* if Searched pokemons array has any items in it, hide all pokemons and show searched array, if searched pokemons array is empty show all pokemons */}
+        {searchedPokemon.length <= 0
+          ? pokemons.map((pokemon) => (
+              <div key={pokemon.id}>
+                <Pokemon
+                  name={pokemon.name}
+                  maxHP={pokemon.maxHP}
+                  maxCP={pokemon.maxCP}
+                  image={pokemon.image}
+                  attacks={pokemon.attacks}
+                />
+              </div>
+            ))
+          : searchedPokemon &&
+            searchedPokemon.map((pokemon) => (
+              <div key={pokemon.id}>
+                <Pokemon
+                  name={pokemon.name}
+                  maxHP={pokemon.maxHP}
+                  maxCP={pokemon.maxCP}
+                  image={pokemon.image}
+                  attacks={pokemon.attacks}
+                />
+              </div>
+            ))}
       </div>
     </>
   );
