@@ -1,6 +1,6 @@
 import React from "react";
 
-function Search({ searchQuery, setSearchQuery }) {
+function Search({ handleQuerySearch, searchQuery }) {
   return (
     <div className="search-container">
       <form className="form-container">
@@ -9,7 +9,7 @@ function Search({ searchQuery, setSearchQuery }) {
           type="search"
           placeholder="Search Pokemons"
           value={searchQuery}
-          onChange={(e) => setSearchQuery(e.target.value)}
+          onChange={handleQuerySearch}
         />
       </form>
     </div>

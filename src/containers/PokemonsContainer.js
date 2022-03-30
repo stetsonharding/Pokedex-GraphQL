@@ -8,28 +8,44 @@ import "../../src/css/PokemonsContainer.css";
 
 function PokemonsContainer() {
   const [searchQuery, setSearchQuery] = useState("");
+  const [searchedPokemon, setSeaerchedPokemon] = useState([]);
 
   const { data: { pokemons = [] } = {} } = useQuery(GET_POKEMONS, {
     variables: { first: 12 },
   });
 
-  const searchedPokemons = pokemons.filter((pokemon) =>
-    pokemon.name.includes(searchQuery)
-  );
+  const handleQuerySearch = (e) => {
+    //Storing user input in state
+    setSearchQuery(e.target.value);
 
-  console.log(searchedPokemons);
+    //Searching pokemons array with user input
+    //Storing  searched results in new array.
+    setSeaerchedPokemon(
+      pokemons.filter((pokemon) => pokemon.name.includes(searchQuery))
+    );
+
+    // if (searchQuery === null) {
+    //   setSearchQuery("");
+    //   setSeaerchedPokemon([]);
+    // }
+  };
+
+  // console.log(searchedPokemon);
 
   return (
     <>
       <div>
-        <Search setSearchQuery={setSearchQuery} searchQuery={searchQuery} />
+        <Search
+          handleQuerySearch={handleQuerySearch}
+          searchQuery={searchQuery}
+        />
       </div>
       <div className="pokemons-container">
         {/* if pokemons array is not null, iterate through array, and pass each item to pokemon cards componenet via props */}
         {pokemons &&
           pokemons.map((pokemon) => (
             <div key={pokemon.id}>
-              <Pokemon pokemon={pokemon} searchedPokemons={searchedPokemons} />
+              <Pokemon pokemon={pokemon} />
             </div>
           ))}
         {/* <Pokemon /> */}
