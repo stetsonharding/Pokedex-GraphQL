@@ -17,6 +17,8 @@ function PokemonsContainer() {
   const handleQuerySearch = (e) => {
     //Storing user input in state
     setSearchQuery(e.target.value);
+    //Keeping track of user query
+    let value = e.target.value;
 
     //Searching pokemons array with user input
     //Storing  searched results in new array.
@@ -24,14 +26,12 @@ function PokemonsContainer() {
       pokemons.filter((pokemon) => pokemon.name.includes(searchQuery))
     );
 
-    if (searchQuery === "") {
-      // setSearchQuery("");
-      // setSearchedPokemon([]);
-      console.log(true);
+    //If user deletes search query,
+    //set searched pokemon array to empty, so all pokemons will display.
+    if (value === "") {
+      setSearchedPokemon([]);
     }
   };
-
-  console.log(searchQuery);
 
   return (
     <>
