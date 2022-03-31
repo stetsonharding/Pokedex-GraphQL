@@ -11,24 +11,29 @@ function PokemonsContainer() {
   const [searchedPokemon, setSearchedPokemon] = useState([]);
 
   const { data: { pokemons = [] } = {} } = useQuery(GET_POKEMONS, {
-    variables: { first: 12 },
+    variables: { first: 150 },
   });
 
   const handleQuerySearch = (e) => {
+    //Keeping track of user query.
+    let userQuery = e.target.value;
+    //Capitalized first Character in user query, because all Pokemon's starts with capitalized letter.
+    const capatalizedFirstCharQuery =
+      userQuery.slice(0, 1).toUpperCase() +
+      userQuery.slice(1, userQuery.length);
+
     //Storing user input in state
-    setSearchQuery(e.target.value);
-    //Keeping track of user query
-    let value = e.target.value;
+    setSearchQuery(capatalizedFirstCharQuery);
 
     //Searching pokemons array with user input
-    //Storing  searched results in new array.
+    //Storing searched results in new state.
     setSearchedPokemon(
       pokemons.filter((pokemon) => pokemon.name.includes(searchQuery))
     );
 
     //If user deletes search query,
-    //set searched pokemon array to empty, so all pokemons will display.
-    if (value === "") {
+    //set searched pokemon state to empty, so all pokemons will display.
+    if (capatalizedFirstCharQuery === "") {
       setSearchedPokemon([]);
     }
   };
