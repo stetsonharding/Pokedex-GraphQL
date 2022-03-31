@@ -4,6 +4,7 @@ import { GET_POKEMONS } from "../graphql/fetch-pokemons";
 
 import Pokemon from "../components/Pokemon";
 import Search from "../components/Search";
+import Header from "../components/Header";
 import "../../src/css/PokemonsContainer.css";
 
 function PokemonsContainer() {
@@ -41,10 +42,14 @@ function PokemonsContainer() {
   return (
     <>
       <div>
-        <Search
+        <Header
           handleQuerySearch={handleQuerySearch}
           searchQuery={searchQuery}
         />
+        {/* <Search
+          handleQuerySearch={handleQuerySearch}
+          searchQuery={searchQuery}
+        /> */}
       </div>
       <div className="pokemons-container">
         {/* if Searched pokemons array has any items in it, hide all pokemons and show searched array, if searched pokemons array is empty show all pokemons */}
