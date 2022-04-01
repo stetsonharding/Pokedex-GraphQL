@@ -1,5 +1,7 @@
 import React from "react";
 
+import "../css/Search.css";
+
 function Search({ handleQuerySearch, searchQuery }) {
   return (
     <div className="search-container">

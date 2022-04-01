@@ -1,0 +1,14 @@
+
+.form-container{
+    display: flex;
+    justify-content: center;
+}
+
+
+/*Input */
+.search-input {
+    padding: 8px;
+    width: 40%;
+    border-radius: 5px;
+   border: none;
+}
