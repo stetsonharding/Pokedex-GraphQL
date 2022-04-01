@@ -22,6 +22,16 @@
   font-size: 20px;
 }
 
+/* Types */
+.pokemon-type{
+display: flex;
+justify-content: flex-start;
+}
+
+.pokemon-type span{
+ font-size: 10px;
+  }
+
 /* details max hp and crit */
 .pokemon-strength-details {
   display: flex;

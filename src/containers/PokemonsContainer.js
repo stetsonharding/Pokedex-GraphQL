@@ -12,7 +12,7 @@ function PokemonsContainer() {
   const [searchedPokemon, setSearchedPokemon] = useState([]);
 
   const { data: { pokemons = [] } = {} } = useQuery(GET_POKEMONS, {
-    variables: { first: 150 },
+    variables: { first: 12 },
   });
 
   const handleQuerySearch = (e) => {
@@ -46,10 +46,6 @@ function PokemonsContainer() {
           handleQuerySearch={handleQuerySearch}
           searchQuery={searchQuery}
         />
-        {/* <Search
-          handleQuerySearch={handleQuerySearch}
-          searchQuery={searchQuery}
-        /> */}
       </div>
       <div className="pokemons-container">
         {/* if Searched pokemons array has any items in it, hide all pokemons and show searched array, if searched pokemons array is empty show all pokemons */}
@@ -62,6 +58,7 @@ function PokemonsContainer() {
                   maxCP={pokemon.maxCP}
                   image={pokemon.image}
                   attacks={pokemon.attacks}
+                  types={pokemon.types}
                 />
               </div>
             ))
@@ -74,6 +71,7 @@ function PokemonsContainer() {
                   maxCP={pokemon.maxCP}
                   image={pokemon.image}
                   attacks={pokemon.attacks}
+                  types={pokemon.types}
                 />
               </div>
             ))}
