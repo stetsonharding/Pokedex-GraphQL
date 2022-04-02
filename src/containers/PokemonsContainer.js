@@ -3,7 +3,6 @@ import { useQuery } from "@apollo/react-hooks";
 import { GET_POKEMONS } from "../graphql/fetch-pokemons";
 
 import Pokemon from "../components/Pokemon";
-import Search from "../components/Search";
 import Header from "../components/Header";
 import "../../src/css/PokemonsContainer.css";
 
@@ -12,7 +11,7 @@ function PokemonsContainer() {
   const [searchedPokemon, setSearchedPokemon] = useState([]);
 
   const { data: { pokemons = [] } = {} } = useQuery(GET_POKEMONS, {
-    variables: { first: 12 },
+    variables: { first: 120 },
   });
 
   const handleQuerySearch = (e) => {
