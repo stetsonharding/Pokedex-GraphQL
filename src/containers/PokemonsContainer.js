@@ -5,10 +5,12 @@ import { GET_POKEMONS } from "../graphql/fetch-pokemons";
 import Pokemon from "../components/Pokemon";
 import Header from "../components/Header";
 import "../../src/css/PokemonsContainer.css";
+import FilterPokemons from "../components/FilterPokemons";
 
 function PokemonsContainer() {
   const [searchQuery, setSearchQuery] = useState("");
   const [searchedPokemon, setSearchedPokemon] = useState([]);
+  const [filteredPokemons, setFilteredPokemon] = useState([]);
 
   const { data: { pokemons = [] } = {} } = useQuery(GET_POKEMONS, {
     variables: { first: 120 },
@@ -38,6 +40,14 @@ function PokemonsContainer() {
     }
   };
 
+  const filterPokemons = (type) => {
+    let filtered = pokemons.filter(
+      (pokemon) => pokemon.types.slice(0, 1) == type
+    );
+    console.log(filtered);
+    setFilteredPokemon(filtered);
+  };
+
   return (
     <>
       <div>
@@ -45,6 +55,7 @@ function PokemonsContainer() {
           handleQuerySearch={handleQuerySearch}
           searchQuery={searchQuery}
         />
+        <FilterPokemons filterPokemons={filterPokemons} />
       </div>
       <div className="pokemons-container">
         {/* if Searched pokemons array has any items in it, hide all pokemons and show searched array, if searched pokemons array is empty show all pokemons */}
