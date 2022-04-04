@@ -10,10 +10,10 @@ import FilterPokemons from "../components/FilterPokemons";
 function PokemonsContainer() {
   const [searchQuery, setSearchQuery] = useState("");
   const [searchedPokemon, setSearchedPokemon] = useState([]);
-  const [filteredPokemons, setFilteredPokemon] = useState([]);
+  const [error, setError] = useState("");
 
   const { data: { pokemons = [] } = {} } = useQuery(GET_POKEMONS, {
-    variables: { first: 120 },
+    variables: { first: 500 },
   });
 
   const handleQuerySearch = (e) => {
@@ -40,12 +40,25 @@ function PokemonsContainer() {
     }
   };
 
+  //Filter pokemon by type
   const filterPokemons = (type) => {
+    //any pokeon with the type selected, store into array filtered.
     let filtered = pokemons.filter(
       (pokemon) => pokemon.types.slice(0, 1) == type
     );
-    console.log(filtered);
-    setFilteredPokemon(filtered);
+
+    //if there is no length on filtered array, type of pokemon is not found.
+    //Display message to user.
+    if (!filtered.length) {
+      setError("No pokemons found with that type");
+    } else {
+      setError("");
+    }
+
+    //set searched pokemon to empty array incase search query was used.
+    setSearchedPokemon([]);
+    //store the filtered pokemon into state
+    setSearchedPokemon(filtered);
   };
 
   return (
@@ -56,6 +69,11 @@ function PokemonsContainer() {
           searchQuery={searchQuery}
         />
         <FilterPokemons filterPokemons={filterPokemons} />
+        <div>
+          <p id="error-msg" style={{ fontSize: "12px", paddingLeft: "20px" }}>
+            {error}
+          </p>
+        </div>
       </div>
       <div className="pokemons-container">
         {/* if Searched pokemons array has any items in it, hide all pokemons and show searched array, if searched pokemons array is empty show all pokemons */}
