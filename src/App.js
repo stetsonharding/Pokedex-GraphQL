@@ -3,7 +3,7 @@ import PokemonsContainer from "./containers/PokemonsContainer";
 
 //Apollo allows us to git a graphQl endpoint.
 import ApolloClient from "apollo-boost";
-import { ApolloProvider } from "@apollo/react-hooks";
+import { ApolloProvider } from "@apollo/client";
 import "../src/App.css";
 
 import ReactPaginate from "react-paginate";

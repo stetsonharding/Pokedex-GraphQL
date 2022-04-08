@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useQuery } from "@apollo/react-hooks";
+import { useQuery } from "@apollo/client";
 import { GET_POKEMONS } from "../graphql/fetch-pokemons";
 
 import Pokemon from "../components/Pokemon";
