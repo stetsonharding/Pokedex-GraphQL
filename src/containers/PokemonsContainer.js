@@ -13,7 +13,7 @@ function PokemonsContainer() {
   const [error, setError] = useState("");
 
   const { data: { pokemons = [] } = {} } = useQuery(GET_POKEMONS, {
-    variables: { first: 24 },
+    variables: { first: 12 },
   });
 
   const handleQuerySearch = (e) => {
