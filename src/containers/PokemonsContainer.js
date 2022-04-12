@@ -12,19 +12,9 @@ function PokemonsContainer() {
   const [searchedPokemon, setSearchedPokemon] = useState([]);
   const [error, setError] = useState("");
 
-  //pagination
-  const [currentPage, setCurrentPage] = useState(1);
-  const [postsPerPage, setPostsPerPage] = useState(10);
-
   const { data: { pokemons = [] } = {} } = useQuery(GET_POKEMONS, {
     variables: { first: 12 },
   });
-
-  const indexOfLastPost = currentPage * postsPerPage;
-  const indexOfFirstPosts = indexOfLastPost - postsPerPage;
-  const currentPost = pokemons.slice(indexOfFirstPosts, indexOfFirstPosts);
-
-  console.log(currentPage);
 
   const handleQuerySearch = (e) => {
     //Keeping track of user query.
