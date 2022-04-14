@@ -6,6 +6,7 @@ function Pokemon(props) {
     <div
       className="pokemon"
       style={{
+        //Background color based on pokemons type.
         backgroundColor: `${props.types
           .slice(0, 1)
           .map((type) =>
@@ -51,6 +52,7 @@ function Pokemon(props) {
     >
       <div className="pokemon-name">
         <span>{props.name}</span>
+        {/* Getting the first type of the pokemon */}
         {props.types.slice(0, 1).map((type) => (
           <div key={type} className="pokemon-type">
             <span>{type}</span>
