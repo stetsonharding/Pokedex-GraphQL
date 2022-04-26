@@ -1,25 +1,19 @@
 import React from "react";
 import PokemonsContainer from "./containers/PokemonsContainer";
-
-//Apollo allows us to git a graphQl endpoint.
-import ApolloClient from "apollo-boost";
-import { ApolloProvider } from "@apollo/client";
+import { useQuery } from "@apollo/client";
+import { GET_POKEMONS } from "./graphql/fetch-pokemons";
 import "../src/App.css";
 
 function App() {
-  //State for holding pokemons search query.
-
-  //Setting up GraphQL request.
-  const client = new ApolloClient({
-    uri: "https://graphql-pokemon2.vercel.app/",
+  //graphql data
+  const { data: { pokemons = [] } = {} } = useQuery(GET_POKEMONS, {
+    variables: { first: 120 },
   });
 
   return (
-    <ApolloProvider client={client}>
-      <main>
-        <PokemonsContainer />
-      </main>
-    </ApolloProvider>
+    <main>
+      <PokemonsContainer pokemons={pokemons} />
+    </main>
   );
 }
 

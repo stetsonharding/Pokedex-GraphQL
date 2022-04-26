@@ -10,7 +10,6 @@ function Header({ handleQuerySearch, searchQuery }) {
       <div className="header-image-container">
         <img src={PokemonLogo} alt="Pokemon Logo" />
       </div>
-
       <Search handleQuerySearch={handleQuerySearch} searchQuery={searchQuery} />
     </div>
   );

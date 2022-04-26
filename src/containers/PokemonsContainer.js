@@ -1,23 +1,18 @@
 import React, { useState } from "react";
-import { useQuery } from "@apollo/client";
-import { GET_POKEMONS } from "../graphql/fetch-pokemons";
-
+//components
 import Pokemon from "../components/Pokemon";
 import Header from "../components/Header";
-import "../../src/css/PokemonsContainer.css";
 import FilterPokemons from "../components/FilterPokemons";
+//css
+import "../../src/css/PokemonsContainer.css";
 
-function PokemonsContainer() {
+function PokemonsContainer({ pokemons }) {
   const [searchQuery, setSearchQuery] = useState("");
   const [searchedPokemon, setSearchedPokemon] = useState([]);
   const [error, setError] = useState("");
 
-  const { data: { pokemons = [] } = {} } = useQuery(GET_POKEMONS, {
-    variables: { first: 120 },
-  });
-
   const handleQuerySearch = (e) => {
-    //Keeping track of user query.
+    //Keeping track of user search query.
     let userQuery = e.target.value;
     //Capitalized first Character in user query, because all Pokemon's starts with capitalized letter.
     const capatalizedFirstCharQuery =
@@ -40,7 +35,6 @@ function PokemonsContainer() {
     }
   };
 
-  //Filter pokemon by type
   const filterPokemons = (type) => {
     //any pokeon with the type selected, store into array filtered.
     let filtered = pokemons.filter(

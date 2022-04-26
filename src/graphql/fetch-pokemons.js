@@ -1,6 +1,7 @@
 //allows us to write graphQL query thats parsed into standard graphQL AST.
 //Pass queries to apollo client.
-import gql from "graphql-tag";
+
+import { gql } from "@apollo/client";
 
 //queries for graphQL.
 export const GET_POKEMONS = gql`
