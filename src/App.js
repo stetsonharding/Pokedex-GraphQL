@@ -36,11 +36,12 @@ function App() {
 
   return (
     <main>
-      <PokemonsContainer pokemons={currentPokemons} />
+      <PokemonsContainer pokemons={currentPokemons} allPokemons={pokemons} />
       <Pagination
         pokemonsPerPage={pokemonsPerPage}
         totalPokemons={pokemons.length}
         paginate={paginate}
+        currentPage={currentPage}
       />
     </main>
   );

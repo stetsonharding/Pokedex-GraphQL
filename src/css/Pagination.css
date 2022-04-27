@@ -1,0 +1,40 @@
+
+.pagination{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.active,
+.page-item {
+    list-style-type: none;
+    border: 1px solid black;
+    width: 25px;
+    text-align: center;
+    margin: .5em .8em;
+    background-color: rgb(254, 254, 254);
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.active{
+    background-color: rgb(137, 235, 222);
+   
+}
+
+.page-item:hover {
+    border: 2px solid black;
+}
+
+.active,
+.page-item a {
+    list-style-type: none;
+    text-decoration: none;
+    font-size: 1.3rem;
+    color:#00060b;
+}
+
+
+
+
+

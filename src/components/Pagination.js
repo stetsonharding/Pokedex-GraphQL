@@ -1,6 +1,7 @@
 import React from "react";
+import "../css/Pagination.css";
 
-function Pagination({ pokemonsPerPage, totalPokemons, paginate }) {
+function Pagination({ pokemonsPerPage, totalPokemons, paginate, currentPage }) {
   const pageNumbers = [];
 
   for (let i = 1; i <= Math.ceil(totalPokemons / pokemonsPerPage); i++) {
@@ -8,11 +9,14 @@ function Pagination({ pokemonsPerPage, totalPokemons, paginate }) {
   }
 
   return (
-    <nav>
+    <nav className="nav-container">
       <ul className="pagination">
         {pageNumbers.map((number) => (
-          <li key={number} className="page-item">
-            <a onClick={() => paginate(number)} href="!#" className="page-link">
+          <li
+            key={number}
+            className={`${number === currentPage ? "active" : "page-item"}`}
+          >
+            <a onClick={() => paginate(number)} className="page-link" href="!#">
               {number}
             </a>
           </li>

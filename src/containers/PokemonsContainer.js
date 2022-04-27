@@ -6,7 +6,7 @@ import FilterPokemons from "../components/FilterPokemons";
 //css
 import "../../src/css/PokemonsContainer.css";
 
-function PokemonsContainer({ pokemons }) {
+function PokemonsContainer({ pokemons, allPokemons }) {
   const [searchQuery, setSearchQuery] = useState("");
   const [searchedPokemon, setSearchedPokemon] = useState([]);
   const [error, setError] = useState("");
@@ -25,7 +25,7 @@ function PokemonsContainer({ pokemons }) {
     //Searching pokemons array with user input
     //Storing searched results in new state.
     setSearchedPokemon(
-      pokemons.filter((pokemon) => pokemon.name.includes(searchQuery))
+      allPokemons.filter((pokemon) => pokemon.name.includes(searchQuery))
     );
 
     //If user deletes search query,
@@ -37,7 +37,7 @@ function PokemonsContainer({ pokemons }) {
 
   const filterPokemons = (type) => {
     //any pokeon with the type selected, store into array filtered.
-    let filtered = pokemons.filter(
+    let filtered = allPokemons.filter(
       (pokemon) => pokemon.types.slice(0, 1) == type
     );
 
