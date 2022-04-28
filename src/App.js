@@ -29,8 +29,6 @@ function App() {
   //Change page
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
-  console.log(currentPokemons);
-
   if (loading) return "Loading...";
   if (error) return <pre>{error.message}</pre>;
 

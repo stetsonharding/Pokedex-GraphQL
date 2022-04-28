@@ -1,10 +1,10 @@
-
 .pagination{
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
+/* list item */
 .active,
 .page-item {
     list-style-type: none;
@@ -16,23 +16,27 @@
     cursor: pointer;
     border-radius: 5px;
 }
-
-.active{
-    background-color: rgb(137, 235, 222);
-   
-}
-
 .page-item:hover {
-    border: 2px solid black;
+    border: 1.5px solid black;
 }
 
-.active,
-.page-item a {
+/* a tag */
+.page-link{
+    color:rgb(245, 245, 249);
+    text-decoration: none;
     list-style-type: none;
     text-decoration: none;
     font-size: 1.3rem;
     color:#00060b;
+    font-family:'Times New Roman', Times, serif;
 }
+
+/* user on current page number */
+.active{
+    background-color: #3d7dca; 
+
+}
+
 
 
 

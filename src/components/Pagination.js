@@ -3,7 +3,7 @@ import "../css/Pagination.css";
 
 function Pagination({ pokemonsPerPage, totalPokemons, paginate, currentPage }) {
   const pageNumbers = [];
-
+  //calculating total page numbers.
   for (let i = 1; i <= Math.ceil(totalPokemons / pokemonsPerPage); i++) {
     pageNumbers.push(i);
   }
@@ -13,10 +13,11 @@ function Pagination({ pokemonsPerPage, totalPokemons, paginate, currentPage }) {
       <ul className="pagination">
         {pageNumbers.map((number) => (
           <li
+            onClick={() => paginate(number)}
             key={number}
             className={`${number === currentPage ? "active" : "page-item"}`}
           >
-            <a onClick={() => paginate(number)} className="page-link" href="!#">
+            <a className="page-link" href="!#">
               {number}
             </a>
           </li>
