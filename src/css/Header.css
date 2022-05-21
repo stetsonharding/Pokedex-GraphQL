@@ -1,7 +1,8 @@
 /* container */
 .header-container {
   height: 130px;
-  width: 1500px;
+  min-width: 100%;
+  max-width: 100%;
   background-color: rgb(56, 56, 55);
 }
 
@@ -9,5 +10,36 @@
 .header-image-container img {
   width: 100px;
   height: 50px;
-  margin: .8rem;
+  margin: 0.8rem;
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  /* pokemon logo */
+  .header-image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .header-container {
+    width: 200px;
+  }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+  .header-image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+  .header-image-container {
+    display: flex;
+    justify-content: flex-start;
+  }
 }

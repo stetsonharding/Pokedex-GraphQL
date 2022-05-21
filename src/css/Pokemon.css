@@ -1,7 +1,13 @@
 @keyframes shake {
-  0% { transform: translate(1px, 1px) rotate(0deg); }
-  10% { transform: translate(-1px, -2px) rotate(-1deg); }
-  20% { transform: translate(-3px, 0px) rotate(1deg); }
+  0% {
+    transform: translate(1px, 1px) rotate(0deg);
+  }
+  10% {
+    transform: translate(-1px, -2px) rotate(-1deg);
+  }
+  20% {
+    transform: translate(-3px, 0px) rotate(1deg);
+  }
 }
 
 /* main wrapper */
@@ -18,7 +24,6 @@
   animation: shake 0.5s;
 }
 
-
 /* name */
 .pokemon-name {
   background-color: #ffcb05;
@@ -33,14 +38,14 @@
 }
 
 /* Types */
-.pokemon-type{
-display: flex;
-justify-content: flex-start;
+.pokemon-type {
+  display: flex;
+  justify-content: flex-start;
 }
 
-.pokemon-type span{
- font-size: 10px;
-  }
+.pokemon-type span {
+  font-size: 10px;
+}
 
 /* details max hp and crit */
 .pokemon-strength-details {

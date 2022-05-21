@@ -57,7 +57,7 @@ function PokemonsContainer({ pokemons, allPokemons }) {
 
   return (
     <>
-      <div>
+      <div style={{ width: "100%" }}>
         <Header
           handleQuerySearch={handleQuerySearch}
           searchQuery={searchQuery}

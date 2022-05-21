@@ -2,9 +2,29 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 1500px;
+  max-width: 1500px;
   flex-wrap: wrap;
   background-color: rgb(232, 237, 239);
 }
 
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  /* pokemon logo */
+  .pokemons-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
 
+  /* Medium devices (landscape tablets, 768px and up) */
+  @media only screen and (min-width: 768px) {
+    /* .pokemons-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      flex-direction: row;
+    } */
+  }
+}

@@ -1,14 +1,26 @@
-
-.form-container{
-    display: flex;
-    justify-content: center;
+.form-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
 }
-
 
 /*Input */
 .search-input {
-    padding: 8px;
-    width: 40%;
-    border-radius: 5px;
-   border: none;
+  padding: 8px;
+  width: 40%;
+  border-radius: 5px;
+  border: none;
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  .search-input {
+    width: 90%;
+  }
+
+  .search-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 }
