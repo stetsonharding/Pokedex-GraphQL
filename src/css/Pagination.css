@@ -1,44 +1,59 @@
-.pagination{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.pagination {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0;
 }
 
 /* list item */
 .active,
 .page-item {
-    list-style-type: none;
-    border: 1px solid black;
-    width: 25px;
-    text-align: center;
-    margin: .5em .8em;
-    background-color: rgb(254, 254, 254);
-    cursor: pointer;
-    border-radius: 5px;
+  list-style-type: none;
+  border: 1px solid black;
+  width: 25px;
+  text-align: center;
+  margin: 0.5em 0.8em;
+  background-color: rgb(254, 254, 254);
+  cursor: pointer;
+  border-radius: 5px;
 }
 .page-item:hover {
-    border: 1.5px solid black;
+  border: 1.5px solid black;
 }
 
 /* a tag */
-.page-link{
-    color:rgb(245, 245, 249);
-    text-decoration: none;
-    list-style-type: none;
-    text-decoration: none;
-    font-size: 1.3rem;
-    color:#00060b;
-    font-family:'Times New Roman', Times, serif;
+.page-link {
+  color: rgb(245, 245, 249);
+  text-decoration: none;
+  list-style-type: none;
+  text-decoration: none;
+  font-size: 1.3rem;
+  color: #00060b;
+  font-family: "Times New Roman", Times, serif;
 }
 
 /* user on current page number */
-.active{
-    background-color: #3d7dca; 
-
+.active {
+  background-color: #3d7dca;
 }
 
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  .pagination {
+    flex-wrap: wrap;
+    width: 300px;
+    margin: 0;
+  }
+}
 
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+  .pagination {
+  }
+}
 
-
-
-
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+  .pagination {
+  }
+}
