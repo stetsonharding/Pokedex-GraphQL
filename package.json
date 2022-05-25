@@ -1,7 +1,7 @@
 {
   "name": "pokedex-graphql",
   "version": "0.1.0",
-  "homepage": "https://stetsonharding.github.io/pokedex-graphql/",
+  "homepage": "https://stetsonharding.github.io/pokedex-graphql/#/",
   "private": true,
   "dependencies": {
     "@apollo/react-hooks": "^4.0.0",
