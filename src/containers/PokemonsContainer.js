@@ -23,13 +23,11 @@ function PokemonsContainer({ pokemons, allPokemons }) {
     setSearchQuery(capatalizedFirstCharQuery);
 
     //Searching pokemons array with user input
-    //Storing searched results in new state.
     setSearchedPokemon(
       allPokemons.filter((pokemon) => pokemon.name.includes(searchQuery))
     );
 
-    //If user deletes search query,
-    //set searched pokemon state to empty, so all pokemons will display.
+    //display all pokemon if user deleted their query.
     if (capatalizedFirstCharQuery === "") {
       setSearchedPokemon([]);
     }
@@ -70,7 +68,8 @@ function PokemonsContainer({ pokemons, allPokemons }) {
         </div>
       </div>
       <div className="pokemons-container">
-        {/* if Searched pokemons array has any items in it, hide all pokemons and show searched array, if searched pokemons array is empty show all pokemons */}
+        {/* if Searched pokemons array has any items in it, hide all pokemons and show searched array,
+         if searched pokemons array is empty show all pokemons */}
         {searchedPokemon.length <= 0
           ? pokemons.map((pokemon) => (
               <div key={pokemon.id}>

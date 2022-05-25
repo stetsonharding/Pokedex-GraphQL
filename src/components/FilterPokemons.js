@@ -2,7 +2,15 @@ import React from "react";
 
 function FilterPokemons({ filterPokemons }) {
   return (
-    <div className="select-container" style={{ margin: "15px 20px" }}>
+    <div
+      className="select-container"
+      style={{
+        margin: "15px 20px",
+        display: "flex",
+        justifyContent: "flex-end",
+        width: "25%",
+      }}
+    >
       <select id="pokemons" onChange={(e) => filterPokemons(e.target.value)}>
         <option value="">Filter by type:</option>
         <option value="Normal">Normal</option>
