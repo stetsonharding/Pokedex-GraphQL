@@ -11,6 +11,7 @@
   list-style-type: none;
   border: 1px solid black;
   width: 25px;
+  height: 25px;
   text-align: center;
   margin: 0.5em 0.8em;
   background-color: rgb(254, 254, 254);
@@ -24,9 +25,11 @@
 /* a tag */
 .page-link {
   color: rgb(245, 245, 249);
-  text-decoration: none;
+  /* text-decoration: none;
   list-style-type: none;
-  text-decoration: none;
+  text-decoration: none; */
+  padding: 0;
+  margin: 0;
   font-size: 1.3rem;
   color: #00060b;
   font-family: "Times New Roman", Times, serif;

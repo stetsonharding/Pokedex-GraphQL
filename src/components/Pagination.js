@@ -17,9 +17,7 @@ function Pagination({ pokemonsPerPage, totalPokemons, paginate, currentPage }) {
             key={number}
             className={`${number === currentPage ? "active" : "page-item"}`}
           >
-            <a className="page-link" href="!#">
-              {number}
-            </a>
+            <p className="page-link">{number}</p>
           </li>
         ))}
       </ul>
