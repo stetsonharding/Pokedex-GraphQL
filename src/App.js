@@ -27,7 +27,11 @@ function App() {
   );
 
   //Change page
-  const paginate = (pageNumber) => setCurrentPage(pageNumber);
+  const paginate = (pageNumber) => {
+    setCurrentPage(pageNumber);
+
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
 
   if (loading) return "Loading...";
   if (error) return <pre>{error.message}</pre>;

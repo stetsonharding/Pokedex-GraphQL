@@ -11,10 +11,11 @@ function PokemonsContainer({ pokemons, allPokemons }) {
   const [searchedPokemon, setSearchedPokemon] = useState([]);
   const [error, setError] = useState("");
 
+  //Search for pokemons
   const handleQuerySearch = (e) => {
-    //Keeping track of user search query.
+    //search query.
     let userQuery = e.target.value;
-    //Capitalized first Character in user query, because all Pokemon's starts with capitalized letter.
+    //Capitalized first Character in user query.
     const capatalizedFirstCharQuery =
       userQuery.slice(0, 1).toUpperCase() +
       userQuery.slice(1, userQuery.length);
@@ -22,7 +23,7 @@ function PokemonsContainer({ pokemons, allPokemons }) {
     //Storing user input in state
     setSearchQuery(capatalizedFirstCharQuery);
 
-    //Searching pokemons array with user input
+    //Searching pokemons array with query
     setSearchedPokemon(
       allPokemons.filter((pokemon) => pokemon.name.includes(searchQuery))
     );
@@ -33,16 +34,16 @@ function PokemonsContainer({ pokemons, allPokemons }) {
     }
   };
 
+  //Filter Pokemons
   const filterPokemons = (type) => {
-    //any pokeon with the type selected, store into array filtered.
+    //pokemons with type selected, store in array filtered.
     let filtered = allPokemons.filter(
       (pokemon) => pokemon.types.slice(0, 1) == type
     );
 
-    //if there is no length on filtered array, type of pokemon is not found.
-    //Display message to user.
+    //no length on filtered array, type of pokemon is not found.
     if (!filtered.length) {
-      setError("No pokemons found with that type");
+      setError("No pokemons found with that type!");
     } else {
       setError("");
     }
@@ -62,7 +63,14 @@ function PokemonsContainer({ pokemons, allPokemons }) {
         />
         <FilterPokemons filterPokemons={filterPokemons} />
         <div>
-          <p id="error-msg" style={{ fontSize: "12px", paddingLeft: "20px" }}>
+          <p
+            id="error-msg"
+            style={{
+              fontSize: "14px",
+              paddingLeft: "10px",
+              fontWeight: "bold",
+            }}
+          >
             {error}
           </p>
         </div>
